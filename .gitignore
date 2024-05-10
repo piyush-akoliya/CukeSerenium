@@ -1,0 +1,28 @@
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# IDE files (Eclipse)
+.settings/
+.classpath
+.project
+.metadata/
+bin/
+tmp/
+
+# IDE files (IntelliJ IDEA)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Maven specific files
+target/
+
+# Logs and generated files
+logs/
+*.log
