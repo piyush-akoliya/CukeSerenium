@@ -1,32 +1,34 @@
 package org.automation.ui.CucumberSeleniumSerenity.pages;
 
-import org.automation.ui.CucumberSeleniumSerenity.steps.utils.SeleniumUtils;
+import org.automation.ui.CucumberSeleniumSerenity.utils.SeleniumUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class HomePage {
-    
-    private SeleniumUtils seleniumUtils;
-    
-    // Locators
-    private By shoePortalTitle = seleniumUtils.byId("ShoePortalTitle");
-    private By mainPageText = seleniumUtils.byId("MainPageText");
-    private By copyrightFooter = seleniumUtils.byId("CopyrightFooter");
 
-    public HomePage(WebDriver driver) {
-        this.seleniumUtils= new SeleniumUtils("chrome");
-    }
+	private SeleniumUtils seleniumUtils;
 
-    // Methods to interact with elements
-    public String getShoePortalTitle() {
-        return seleniumUtils.getText(shoePortalTitle);
-    }
+	// Locators
+	private By shoePortalTitle;
+	private By mainPageText;
+	private By copyrightFooter;
 
-    public String getMainPageText() {
-        return seleniumUtils.getText(mainPageText);
-    }
+	public HomePage(String url) {
+		this.seleniumUtils = new SeleniumUtils(url);
+		shoePortalTitle = seleniumUtils.byId("ShoePortalTitle");
+		mainPageText = seleniumUtils.byId("MainPageText");
+		copyrightFooter = seleniumUtils.byId("CopyrightFooter");
+	}
 
-    public String getCopyrightFooter() {
-        return seleniumUtils.getText(copyrightFooter);
-    }
+	// Methods to interact with elements
+	public String getShoePortalTitle() {
+		return seleniumUtils.getText(shoePortalTitle);
+	}
+
+	public String getMainPageText() {
+		return seleniumUtils.getText(mainPageText);
+	}
+
+	public String getCopyrightFooter() {
+		return seleniumUtils.getText(copyrightFooter);
+	}
 }
