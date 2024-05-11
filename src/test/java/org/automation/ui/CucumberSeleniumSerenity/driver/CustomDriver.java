@@ -1,32 +1,24 @@
 package org.automation.ui.CucumberSeleniumSerenity.driver;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import net.thucydides.core.webdriver.DriverSource;
 
 public class CustomDriver implements DriverSource {
 	@Override
 	public WebDriver newDriver() {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
+		System.setProperty("webdriver.chrome.driver", "/Users/piyushakoliya/docker-microservice-workspace/chromedriver-mac-arm64/chromedriver");
 
-		capabilities.setBrowserName("chrome");
-		capabilities.setVersion("80.0");
+        // Configure Chrome options
+        ChromeOptions options = new ChromeOptions();
+        // Add any additional Chrome options if needed
 
-		capabilities.setCapability("enableVNC", true);
-		capabilities.setCapability("enableVideo", false);
+        // Initialize Chrome driver
+        WebDriver driver = new ChromeDriver(options);
 
-		RemoteWebDriver driver = null;
-		try {
-			driver = new RemoteWebDriver(URI.create("https://anupdamoda.github.io/AceOnlineShoePortal/index.html").toURL(), capabilities);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return driver;
+        return driver;
 	}
 
 	@Override
